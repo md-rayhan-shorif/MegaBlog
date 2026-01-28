@@ -1,0 +1,160 @@
+import React, { useState } from 'react';
+
+const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 font-sans">
+      
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <span className="text-2xl font-extrabold font-serif tracking-tight text-[#2563eb]">
+                MegaBlog
+              </span>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">Home</a>
+              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">Login</a>
+              <a className="px-5 py-2.5 rounded-full bg-[#2563eb] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25" href="#">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="flex-grow flex items-center justify-center px-4 py-12 md:py-20">
+        <div className="w-full max-w-[480px] space-y-8">
+          <div className="bg-white dark:bg-[#1e293b] p-8 md:p-10 rounded-xl shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
+            
+            <div className="text-center space-y-4 mb-10">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/10 text-[#2563eb] mb-2">
+                <span className="material-symbols-outlined text-3xl">edit_note</span>
+              </div>
+              <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white font-serif">
+                Create your account
+              </h1>
+              <p className="text-slate-500 dark:text-slate-400 text-sm">
+                Already have an account? {' '}
+                <a className="font-semibold text-[#2563eb] hover:underline underline-offset-4" href="#">Sign In</a>
+              </p>
+            </div>
+
+            <form className="space-y-6">
+              {/* Full Name */}
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="full-name">
+                  Full Name
+                </label>
+                <div className="relative group">
+                  <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 group-focus-within:text-[#2563eb] transition-colors">
+                    <span className="material-symbols-outlined text-lg">person</span>
+                  </span>
+                  <input 
+                    className="block w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563eb] transition-all outline-none" 
+                    id="full-name" 
+                    placeholder="John Doe" 
+                    type="text" 
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="email">
+                  Email Address
+                </label>
+                <div className="relative group">
+                  <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 group-focus-within:text-[#2563eb] transition-colors">
+                    <span className="material-symbols-outlined text-lg">mail</span>
+                  </span>
+                  <input 
+                    className="block w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563eb] transition-all outline-none" 
+                    id="email" 
+                    placeholder="name@example.com" 
+                    type="email" 
+                  />
+                </div>
+              </div>
+
+              {/* Password */}
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="password">
+                  Password
+                </label>
+                <div className="relative group">
+                  <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 group-focus-within:text-[#2563eb] transition-colors">
+                    <span className="material-symbols-outlined text-lg">lock</span>
+                  </span>
+                  <input 
+                    className="block w-full pl-11 pr-11 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-[#2563eb] transition-all outline-none" 
+                    id="password" 
+                    placeholder="••••••••" 
+                    type={showPassword ? "text" : "password"} 
+                  />
+                  <button 
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-lg">
+                      {showPassword ? 'visibility_off' : 'visibility'}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <button className="w-full py-4 px-6 bg-[#2563eb] text-white font-bold rounded-lg hover:bg-blue-700 active:scale-[0.98] transition-all shadow-xl shadow-blue-500/25 flex items-center justify-center space-x-2">
+                <span>Create Account</span>
+                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </form>
+
+            <div className="relative my-8">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-slate-200 dark:border-slate-700"></div>
+              </div>
+              <div className="relative flex justify-center text-xs uppercase tracking-widest font-bold">
+                <span className="bg-white dark:bg-[#1e293b] px-4 text-slate-400">Or continue with</span>
+              </div>
+            </div>
+
+            {/* Social Auth */}
+            <div className="grid grid-cols-2 gap-4">
+              <button className="flex items-center justify-center py-3 px-4 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-medium text-sm">
+                <img alt="Google" className="w-5 h-5 mr-2" src="https://www.svgrepo.com/show/475656/google-color.svg" />
+                Google
+              </button>
+              <button className="flex items-center justify-center py-3 px-4 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-medium text-sm">
+                <img alt="Facebook" className="w-5 h-5 mr-2" src="https://www.svgrepo.com/show/475647/facebook-color.svg" />
+                Facebook
+              </button>
+            </div>
+          </div>
+          <p className="text-center text-xs text-slate-400">
+            By signing up, you agree to our {' '}
+            <a className="underline hover:text-[#2563eb]" href="#">Terms</a> and {' '}
+            <a className="underline hover:text-[#2563eb]" href="#">Privacy</a>.
+          </p>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-slate-100 dark:bg-[#0f172a]/50 border-t border-slate-200 dark:border-slate-800 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-slate-400 text-xs">
+            <p>© 2026 MegaBlog. All Rights Reserved. Crafted with <span className="text-red-500">♥</span></p>
+            <div className="flex space-x-6">
+              <span className="hover:text-[#2563eb] cursor-pointer">Terms</span>
+              <span className="hover:text-[#2563eb] cursor-pointer">Privacy</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default SignUp;
