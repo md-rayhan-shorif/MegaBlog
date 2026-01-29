@@ -1,4 +1,5 @@
 import React from 'react';
+import FormHeading from '../components/others/FormHeading';
 
 const Login = () => {
   return (
@@ -10,7 +11,8 @@ const Login = () => {
         <div className="w-full max-w-md z-10">
           <div className="bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl">
             
-            <h1 className="text-3xl font-bold text-center mb-8">Sign in</h1>
+            {/* I will pass different text for login letter */}
+            <FormHeading/>
 
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <input 

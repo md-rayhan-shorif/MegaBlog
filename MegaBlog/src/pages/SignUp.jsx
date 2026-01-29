@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import FormHeading from '../components/others/FormHeading';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,18 +15,7 @@ const SignUp = () => {
         <div className="w-full max-w-[480px] space-y-8">
           <div className="bg-white dark:bg-[#1e293b] p-8 md:p-10 rounded-xl shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
             
-            <div className="text-center space-y-4 mb-10">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/10 text-[#2563eb] mb-2">
-                <span className="material-symbols-outlined text-3xl">edit_note</span>
-              </div>
-              <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white font-serif">
-                Create your account
-              </h1>
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
-                Already have an account? {' '}
-                <a className="font-semibold text-[#2563eb] hover:underline underline-offset-4" href="#">Sign In</a>
-              </p>
-            </div>
+           <FormHeading/>
 
             <form className="space-y-6">
               {/* Full Name */}
