@@ -4,35 +4,7 @@ const Profile = () => {
   return (
     <div className="bg-[#f5f7f8] dark:bg-[#101922] text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300 font-serif">
       
-      {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-[#f5f7f8]/80 dark:bg-[#101922]/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <div className="flex items-center gap-3">
-              <div className="text-[#0d7ff2]">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
-                </svg>
-              </div>
-              <h1 className="text-xl font-bold tracking-tight font-sans">Journal<span className="text-[#0d7ff2]">.</span></h1>
-            </div>
-            <nav className="hidden md:flex items-center gap-8 font-sans text-sm font-medium">
-              <a className="hover:text-[#0d7ff2] transition-colors" href="#">Feed</a>
-              <a className="hover:text-[#0d7ff2] transition-colors" href="#">Topics</a>
-              <a className="hover:text-[#0d7ff2] transition-colors" href="#">Library</a>
-            </nav>
-          </div>
-          <div className="flex items-center gap-6">
-            <div className="relative hidden sm:block">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
-              <input className="font-sans text-sm bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2 pl-10 pr-4 w-64 focus:ring-1 focus:ring-[#0d7ff2] placeholder:text-slate-500" placeholder="Search stories..." type="text"/>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-slate-300 border border-slate-200 dark:border-slate-700 overflow-hidden">
-               <img src="https://i.pravatar.cc/150?u=16" alt="Avatar" />
-            </div>
-          </div>
-        </div>
-      </header>
+      
 
       <main className="max-w-7xl mx-auto pb-20">
         {/* Header Image Section */}
@@ -150,17 +122,7 @@ const Profile = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-slate-800 py-12 px-6 bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-sm font-sans">
-          <p>© 2026 Journal. Built for thinkers.</p>
-          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest">
-            <a className="hover:text-[#0d7ff2]" href="#">Privacy</a>
-            <a className="hover:text-[#0d7ff2]" href="#">Terms</a>
-            <a className="hover:text-[#0d7ff2]" href="#">About</a>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

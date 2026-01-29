@@ -34,33 +34,7 @@ const SavedPosts = () => {
   return (
     <div className="bg-[#102219] text-white min-h-screen font-serif transition-colors duration-300">
       
-      {/* Navigation Bar */}
-      <header className="sticky top-0 z-50 w-full border-b border-[#283930] bg-[#102219]/80 backdrop-blur-md px-6 md:px-20 lg:px-40 py-4">
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-8">
-          <div className="flex items-center gap-12">
-            <div className="flex items-center gap-3 text-[#2bee8c]">
-              <div className="w-8 h-8 flex items-center justify-center bg-[#2bee8c]/10 rounded-lg">
-                <span className="material-symbols-outlined text-2xl">auto_stories</span>
-              </div>
-              <h2 className="text-xl font-bold tracking-tight">Editorial</h2>
-            </div>
-            <nav className="hidden md:flex items-center gap-8 font-sans text-sm font-medium tracking-wide">
-              <a className="text-white hover:text-[#2bee8c] transition-colors" href="#">Explore</a>
-              <a className="text-[#2bee8c]" href="#">My Library</a>
-            </nav>
-          </div>
-          
-          <div className="flex items-center gap-6">
-            <div className="hidden lg:flex w-64 items-center rounded-lg bg-[#283930]/50 border border-[#283930] px-3 py-1.5 focus-within:border-[#2bee8c]/50 transition-all">
-              <span className="material-symbols-outlined text-xl text-[#9db9ab]">search</span>
-              <input className="bg-transparent border-none text-white focus:ring-0 placeholder:text-[#9db9ab] px-2 text-sm font-sans w-full" placeholder="Search saved..." />
-            </div>
-            <div className="w-9 h-9 rounded-full border-2 border-[#2bee8c]/20 overflow-hidden">
-               <img src="https://i.pravatar.cc/150?u=25" alt="Profile" />
-            </div>
-          </div>
-        </div>
-      </header>
+     
 
       <main className="mx-auto max-w-[1200px] py-12 px-6 md:px-20 lg:px-40">
         <div className="flex flex-col gap-8">
@@ -87,6 +61,7 @@ const SavedPosts = () => {
               </button>
             </div>
           </div>
+          
 
           {/* Post Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -139,21 +114,7 @@ const SavedPosts = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-20 border-t border-[#283930]/50 py-12 px-6 md:px-20 lg:px-40 bg-[#102219]">
-        <div className="mx-auto max-w-[1200px] flex flex-col md:flex-row justify-between items-center gap-8 text-[#9db9ab] font-sans text-sm">
-          <div className="flex items-center gap-2 text-white">
-            <span className="material-symbols-outlined text-[#2bee8c]">auto_stories</span>
-            <span className="font-bold">Editorial Platform</span>
-          </div>
-          <div className="flex gap-8">
-            <a className="hover:text-white transition-colors" href="#">Privacy</a>
-            <a className="hover:text-white transition-colors" href="#">Terms</a>
-            <a className="hover:text-white transition-colors" href="#">Help</a>
-          </div>
-          <div className="text-xs tracking-widest uppercase">© 2026 Editorial Inc.</div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

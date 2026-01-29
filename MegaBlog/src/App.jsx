@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Login from './pages/Login'
-import Home from './pages/Home'
-import Post from './pages/Post'
-import AllPost from './pages/AllPost'
-import AddPost from './pages/AddPost'
-import SignUp from './pages/SignUp'
-import Profile from './pages/Profile'
-import Settings from './pages/Settings'
-import SavedPosts from './pages/SavedPosts'
+import React from 'react'
+import Header from './components/Header/Navber'
+import Footer from './components/Footer/Footer'
+import { Outlet } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      {/* <Login/> */}
-
-      {/* <Home/> */}
-      {/* <Post/> */}
-
-      {/* <AllPost/> */}
-      {/* <AddPost/> */}
-      {/* <SignUp/> */}
-      {/* <Profile/> */}
-      {/* <Settings/> */}
-      <SavedPosts/>
-    </>
+    <div className='min-h-screen bg-white dark:bg-[#0a0a0c] flex flex-col'>
+      {/* Header ফিক্সড থাকবে */}
+      <Header />
+      
+      {/* main-এর ভেতর flex-grow দিলে কন্টেন্ট কম থাকলেও Footer নিচে থাকবে */}
+      <main className='flex-grow'>
+        {/* Outlet সরাসরি থাকবে, কারণ আপনার AllPost বা অন্যান্য পেজে অলরেডি max-w-7xl এবং padding দেওয়া আছে */}
+        <Outlet />
+      </main>
+      
+      {/* Footer ফিক্সড থাকবে */}
+      <Footer />
+    </div>
   )
 }
 

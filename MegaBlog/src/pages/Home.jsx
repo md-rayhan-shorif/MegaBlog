@@ -4,28 +4,8 @@ const Home = () => {
   return (
     <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen font-sans">
       
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
-              <span className="material-icons-outlined text-[#2563eb] text-3xl">auto_awesome</span>
-              <span className="font-serif text-2xl font-bold tracking-tight">MegaBlog</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">Home</a>
-              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">All Posts</a>
-              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">Add Post</a>
-              <button className="bg-[#2563eb] hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-blue-500/25">
-                Logout
-              </button>
-              <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
-                <span className="material-icons-outlined text-xl">dark_mode</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+   
+     
 
       {/* Header */}
       <header className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -114,39 +94,7 @@ const Home = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="md:col-span-2">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
-                <span className="material-icons-outlined text-[#2563eb] text-3xl">auto_awesome</span>
-                <span className="font-serif text-2xl font-bold tracking-tight">MegaBlog</span>
-              </div>
-              <p className="text-slate-500 dark:text-slate-400 max-w-xs mx-auto md:mx-0">
-                A curated space for thinkers, creators, and innovators. Join our community of over 50,000 readers.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold text-sm uppercase tracking-widest mb-6">Company</h4>
-              <ul className="space-y-4 text-slate-600 dark:text-slate-400 text-sm">
-                <li><a className="hover:text-[#2563eb] transition-colors" href="#">Features</a></li>
-                <li><a className="hover:text-[#2563eb] transition-colors" href="#">Pricing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-sm uppercase tracking-widest mb-6">Newsletter</h4>
-              <form className="flex gap-2">
-                <input className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Email" type="email"/>
-                <button className="bg-[#2563eb] text-white px-6 py-2 rounded-full font-bold text-sm">Join</button>
-              </form>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-slate-200 dark:border-slate-900 text-xs text-slate-400 font-medium flex justify-between">
-            <p>© 2026 MegaBlog Platform. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+       
     </div>
   );
 };

@@ -4,21 +4,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#F8FAFC] dark:bg-[#0F172A] text-slate-900 dark:text-slate-100">
       
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#3B82F6] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
-              <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                MegaBlog
-              </span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      
 
       <main className="flex-grow flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
         <div className="w-full max-w-md z-10">

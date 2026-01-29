@@ -9,33 +9,7 @@ const Post = () => {
         <div className="h-full bg-[#197fe6]" style={{ width: '45%' }}></div>
       </div>
 
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b border-gray-200/50 dark:border-gray-800/50 bg-white/80 dark:bg-[#111921]/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#197fe6] rounded-lg flex items-center justify-center text-white">
-                <span className="material-symbols-outlined !text-xl">auto_stories</span>
-              </div>
-              <h2 className="text-xl font-extrabold tracking-tight">Editorial.</h2>
-            </div>
-            <nav className="hidden md:flex items-center gap-8">
-              <a className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity" href="#">Explore</a>
-              <a className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity" href="#">Podcasts</a>
-              <a className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity" href="#">Membership</a>
-            </nav>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="relative hidden sm:block">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-              <input className="pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-800 border-none rounded-full text-sm focus:ring-2 focus:ring-[#197fe6] w-64 outline-none" placeholder="Search insights..." type="text"/>
-            </div>
-            <button className="bg-[#197fe6] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform">
-              Join Today
-            </button>
-          </div>
-        </div>
-      </header>
+     
 
       <main>
         {/* Hero Section */}
@@ -158,22 +132,7 @@ const Post = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white dark:bg-[#111921] py-12 border-t border-gray-100 dark:border-gray-900">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-[#197fe6] rounded flex items-center justify-center text-white">
-              <span className="material-symbols-outlined !text-sm">auto_stories</span>
-            </div>
-            <h2 className="text-lg font-extrabold tracking-tight text-black dark:text-white">Editorial.</h2>
-          </div>
-          <p>© 2026 Editorial Media Group. All rights reserved.</p>
-          <div className="flex gap-6">
-            <span className="material-symbols-outlined cursor-pointer hover:text-[#197fe6]">public</span>
-            <span className="material-symbols-outlined cursor-pointer hover:text-[#197fe6]">rss_feed</span>
-          </div>
-        </div>
-      </footer>
+     
     </div>
   );
 };
