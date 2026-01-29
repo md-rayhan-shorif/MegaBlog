@@ -6,23 +6,7 @@ const SignUp = () => {
   return (
     <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 font-sans">
       
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <span className="text-2xl font-extrabold font-serif tracking-tight text-[#2563eb]">
-                MegaBlog
-              </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">Home</a>
-              <a className="text-sm font-medium hover:text-[#2563eb] transition-colors" href="#">Login</a>
-              <a className="px-5 py-2.5 rounded-full bg-[#2563eb] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25" href="#">Sign Up</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      
 
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center px-4 py-12 md:py-20">
@@ -141,18 +125,7 @@ const SignUp = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-100 dark:bg-[#0f172a]/50 border-t border-slate-200 dark:border-slate-800 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-slate-400 text-xs">
-            <p>© 2026 MegaBlog. All Rights Reserved. Crafted with <span className="text-red-500">♥</span></p>
-            <div className="flex space-x-6">
-              <span className="hover:text-[#2563eb] cursor-pointer">Terms</span>
-              <span className="hover:text-[#2563eb] cursor-pointer">Privacy</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

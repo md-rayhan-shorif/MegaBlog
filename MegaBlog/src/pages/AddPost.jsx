@@ -4,31 +4,7 @@ const AddPost = () => {
   return (
     <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 transition-colors duration-200 min-h-screen font-['Inter',sans-serif]">
       
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#1e293b]/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
-              <div className="bg-[#2563eb] p-1.5 rounded-lg">
-                <span className="material-icons-round text-white text-xl">auto_awesome</span>
-              </div>
-              <span className="text-xl font-bold tracking-tight">MegaBlog</span>
-            </div>
-            <nav className="hidden md:flex space-x-8 items-center">
-              <a className="text-sm font-medium text-slate-500 hover:text-[#2563eb] transition-colors" href="#">Home</a>
-              <a className="text-sm font-medium text-slate-500 hover:text-[#2563eb] transition-colors" href="#">All Posts</a>
-              <a className="text-sm font-semibold text-[#2563eb]" href="#">Add Post</a>
-              <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-all">
-                <span className="material-icons-round text-lg">logout</span> Logout
-              </button>
-              <button className="p-2 rounded-full bg-slate-100 dark:bg-slate-800">
-                <span className="material-icons-round text-lg dark:hidden">dark_mode</span>
-                <span className="material-icons-round text-lg hidden dark:block text-white">light_mode</span>
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
+      
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -125,20 +101,7 @@ const AddPost = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-20 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0f172a]/50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-              <div className="bg-[#2563eb] p-1 rounded-md">
-                <span className="material-icons-round text-white text-base">auto_awesome</span>
-              </div>
-              <span className="text-lg font-bold tracking-tight">MegaBlog</span>
-            </div>
-            <p className="text-sm text-slate-500">© 2026 MegaBlog. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

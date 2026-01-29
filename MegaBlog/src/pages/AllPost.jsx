@@ -67,47 +67,18 @@ const AllPost = () => {
         {/* Pagination */}
         <div className="mt-20 flex justify-center items-center gap-2">
           <button className="w-12 h-12 flex items-center justify-center rounded-xl border border-slate-100 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors text-slate-400">
-            <span className="material-symbols-outlined text-xl">chevron_left</span>
+            <span className="material-symbols-outlined text-xl"> {"<-"} </span>
           </button>
           <button className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-medium text-sm">1</button>
           <button className="w-12 h-12 flex items-center justify-center rounded-xl border border-slate-100 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors font-medium text-sm">2</button>
           <span className="px-2 text-slate-400">...</span>
           <button className="w-12 h-12 flex items-center justify-center rounded-xl border border-slate-100 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors text-slate-400">
-            <span className="material-symbols-outlined text-xl">chevron_right</span>
+            <span className="material-symbols-outlined text-xl">{"->"} </span>
           </button>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white dark:bg-[#0a0a0c] border-t border-slate-100 dark:border-white/5 pt-20 pb-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center md:text-left">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
-            <div className="md:col-span-4">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
-                <span className="material-symbols-outlined text-[#2563eb] text-3xl">auto_awesome</span>
-                <span className="font-serif text-2xl font-bold tracking-tight">MegaBlog</span>
-              </div>
-              <p className="text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm mx-auto md:mx-0">
-                A premium digital space for thinkers and creators. Curating the best insights to help you navigate the modern world.
-              </p>
-            </div>
-            <div className="md:col-span-4">
-              <h4 className="font-semibold text-sm mb-6 uppercase tracking-widest text-slate-400">Join our journal</h4>
-              <form className="flex gap-2 max-w-sm mx-auto md:mx-0">
-                <input className="flex-1 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-1 focus:ring-blue-500" placeholder="Email address" type="email"/>
-                <button className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all">Join</button>
-              </form>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-slate-100 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[12px] text-slate-400">
-            <p>© 2026 MegaBlog Editorial. All rights reserved.</p>
-            <div className="flex gap-8">
-              <span className="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer">Legal Notices</span>
-              <span className="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

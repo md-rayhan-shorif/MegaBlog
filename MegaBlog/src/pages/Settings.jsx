@@ -4,33 +4,7 @@ const Settings = () => {
   return (
     <div className="bg-[#f5f7f8] dark:bg-[#0f1115] font-['Manrope',sans-serif] text-slate-900 dark:text-white min-h-screen transition-colors duration-300">
       
-      {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-[#283039] bg-[#f5f7f8]/80 dark:bg-[#0f1115]/80 backdrop-blur-md px-6 lg:px-20 py-3">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#0d7ff2] rounded-lg flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-xl">auto_awesome</span>
-              </div>
-              <h2 className="text-xl font-extrabold tracking-tight">BlogPremium</h2>
-            </div>
-            <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
-              <a className="opacity-70 hover:opacity-100 transition-opacity" href="#">Explore</a>
-              <a className="opacity-70 hover:opacity-100 transition-opacity" href="#">My Feed</a>
-              <a className="text-[#0d7ff2]" href="#">Settings</a>
-            </nav>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="relative hidden sm:block">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-              <input className="bg-slate-100 dark:bg-[#283039] border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-[#0d7ff2] outline-none" placeholder="Search insights..." type="text"/>
-            </div>
-            <div className="h-9 w-9 rounded-full border-2 border-[#0d7ff2]/20 overflow-hidden">
-               <img src="https://i.pravatar.cc/150?u=22" alt="Avatar" />
-            </div>
-          </div>
-        </div>
-      </header>
+      
 
       <main className="max-w-[1440px] mx-auto px-6 lg:px-20 py-10">
         <div className="flex flex-col lg:flex-row gap-10">
@@ -157,17 +131,7 @@ const Settings = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-20 border-t border-slate-200 dark:border-[#283039] py-12 px-6 lg:px-20 bg-slate-50 dark:bg-[#1a1d23]/30">
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 opacity-60 text-xs font-medium">
-          <p>© 2026 BlogPremium Inc. All rights reserved.</p>
-          <div className="flex gap-8">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Help Center</a>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };
