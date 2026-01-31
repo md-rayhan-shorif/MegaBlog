@@ -119,6 +119,30 @@ const Navbar = () => {
               >
                 Add Post
               </NavLink>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) => 
+                  `text-sm font-medium transition-colors ${isActive ? "text-[#2563eb]" : "text-slate-500 hover:text-[#2563eb]"}`
+                }
+              >
+                Profile
+              </NavLink>
+              <NavLink
+                to="/login"
+                className={({ isActive }) => 
+                  `text-sm font-medium transition-colors ${isActive ? "text-[#2563eb]" : "text-slate-500 hover:text-[#2563eb]"}`
+                }
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) => 
+                  `text-sm font-medium transition-colors ${isActive ? "text-[#2563eb]" : "text-slate-500 hover:text-[#2563eb]"}`
+                }
+              >
+                Signup
+              </NavLink>
 
               <div className="h-4 w-px bg-slate-200 dark:bg-white/10 mx-2"></div>
 

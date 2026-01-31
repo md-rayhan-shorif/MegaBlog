@@ -12,10 +12,7 @@ const MainContentHeader = () => {
             />
           </div>
           <div className="relative z-20 max-w-4xl mx-auto px-6 pb-20 w-full text-white">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="bg-[#197fe6]/90 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Digital Design</span>
-              <span className="text-xs font-medium opacity-80">8 min read</span>
-            </div>
+            
             <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight mb-8">
               The Future of Minimalist Digital Design in 2024
             </h1>

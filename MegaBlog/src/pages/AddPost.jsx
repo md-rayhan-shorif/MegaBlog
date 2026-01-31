@@ -88,15 +88,8 @@ const AddPost = () => {
               </button>
             </div>
 
-            {/* Pro-tip Card */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50 p-4 rounded-xl">
-              <div className="flex gap-3">
-                <span className="material-icons-round text-[#2563eb]">lightbulb</span>
-                <p className="text-xs text-blue-800 dark:text-blue-300 leading-relaxed">
-                  <span className="font-bold">Pro-tip:</span> Use high-quality cover images to increase reader engagement by up to 40%.
-                </p>
-              </div>
-            </div>
+            
+           
           </aside>
         </div>
       </main>

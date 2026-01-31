@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const PostCard = () => {
+    const navigate = useNavigate()
   return (
     <article class="group">
-    <div class="glass-card post-card-hover rounded-3xl overflow-hidden flex flex-col h-full">
+    <div class="glass-card post-card-hover rounded-3xl overflow-hidden flex flex-col h-full" onClick={()=> navigate('/post')} >
         <div class="relative h-64 overflow-hidden">
             <img alt="Beautiful landscape" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnEg93wSqJnRYpZrB3xWRnZN1V399_GGy4J3EMvOYXkhTeww2MuVbCJ0BevmGAsPfgImzdt_w89Dp6mdXx2cv0VKx9r6UACa4RSDl2F6M1KJovd8QofRFKAVohILkWX4PHXuWmVGNYjTjA6VLPjPqhCYmu7hq8dP83jbit_U8bpCW2nS-ojBYd8PKXVa7Qv5DBS2C8MHKZzVw-HJm9yJP7D58-eBtDnKRilWCCrDV3-mcFLDlGLpwCaVWH1uoKqBPVejSp3rUYtFV-"/>
             <div class="absolute top-4 left-4">
