@@ -10,22 +10,21 @@ const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Dark mode টগল করার ফাংশন
+  
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);
   };
 
-  // Menu টগল করার ফাংশন
+
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);
   };
 
-  // Menu বন্ধ করার ফাংশন (mobile view-এ link click করলে)
+ 
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
-  // Dark mode পরিবর্তন হলে HTML element-এ class অ্যাড/রিমুভ করা
   useEffect(() => {
     const root = document.documentElement;
     
@@ -38,7 +37,7 @@ const Navbar = () => {
     }
   }, [darkMode]);
 
-  // Esc key press এ menu বন্ধ করার জন্য
+  
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.key === 'Escape') {
@@ -186,9 +185,9 @@ const Navbar = () => {
                 aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? (
-                  <span className="material-icons-outlined text-xl">close</span>
+                  <span className="material-icons-outlined text-xl dark:text-white">close</span>
                 ) : (
-                  <span className="material-icons-outlined text-xl">menu</span>
+                  <span className="material-icons-outlined text-xl dark:text-white ">menu</span>
                 )}
               </button>
             </div>

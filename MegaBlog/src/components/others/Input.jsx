@@ -1,15 +1,16 @@
-import React, { forwardRef, useId} from 'react'
+import React, { forwardRef, useId } from 'react';
 
-const Input = ({
-    label, 
+const Input = forwardRef(({
+    label,
     type = 'text',
-    className = '', 
+    className = '',
     icon,
-    ...props 
+    ...props
 }, ref) => {
-    const id = useId()
-  return (
-    <div className="space-y-2 w-full">
+    const id = useId();
+    
+    return (
+        <div className="space-y-2 w-full text-left">
             {label && (
                 <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor={id}>
                     {label}
@@ -30,7 +31,7 @@ const Input = ({
                 />
             </div>
         </div>
-  )
-}
+    );
+});
 
-export default forwardRef(Input) 
+export default Input;

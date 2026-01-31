@@ -8,4 +8,4 @@ const conf = {
     tinymceApiKey: String(import.meta.env.VITE_TINYMCE_API_KEY),
 }
 
-export default conf
+export default conf;

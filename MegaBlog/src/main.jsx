@@ -15,7 +15,9 @@ import Post from './pages/Post.jsx'
 import Profile from './pages/Profile.jsx'
 import Settings from './pages/Settings.jsx'
 import SavedPosts from './pages/SavedPosts.jsx'
-
+import { Provider} from 'react-redux'
+import store from './store/store.js'
+ 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,6 +69,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider store={store}>
+
     <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 )
