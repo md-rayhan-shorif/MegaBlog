@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import authService from './Appwrite/auth'
 import { login, logout } from './store/authSlice'
+import ScrollToTop from './components/others/ScrollToTop'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -24,6 +25,7 @@ function App() {
   return !loading ? (
     <div className='min-h-screen bg-white dark:bg-[#0a0a0c] flex flex-col'>
       
+      <ScrollToTop/>
       <Header />
       
     

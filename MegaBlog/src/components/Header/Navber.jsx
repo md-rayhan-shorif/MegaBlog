@@ -19,14 +19,14 @@ const Navbar = () => {
 
   const authStatus = useSelector(state => state.auth.status);
   const userData = useSelector((state) => state.auth.userData);
-// ! i will work leter
-  // useEffect(() => {
-  //   if (authStatus && userData?.$id) {
-  //     authService.getUserProfile(userData.$id).then((res) => {
-  //       if (res) setDbUserData(res);
-  //     });
-  //   }
-  // }, [authStatus, userData]);
+
+  useEffect(() => {
+    if (authStatus && userData?.$id) {
+      authService.getUserProfile(userData.$id).then((res) => {
+        if (res) setDbUserData(res);
+      });
+    }
+  }, [authStatus, userData]);
 
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);
@@ -40,7 +40,6 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
-  // Logout Functionality
   const handleLogout = async () => {
     try {
       await authService.logout();
@@ -53,7 +52,6 @@ const Navbar = () => {
     }
   };
 
-  // Dark mode effect
   useEffect(() => {
     const root = document.documentElement;
     if (darkMode) {
@@ -65,7 +63,6 @@ const Navbar = () => {
     }
   }, [darkMode]);
 
-  // Click outside and Esc key logic (আপনার কোড অনুযায়ী অপরিবর্তিত)
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (showDropdown && !e.target.closest('.profile-dropdown')) {
@@ -108,7 +105,6 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
               <NavLink to="/" className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-[#2563eb]" : "text-slate-500 hover:text-[#2563eb]"}`}>Home</NavLink>
               
-             
               {authStatus && (
                 <>
                   <NavLink to="/all-posts" className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-[#2563eb]" : "text-slate-500 hover:text-[#2563eb]"}`}>All Posts</NavLink>
@@ -117,7 +113,6 @@ const Navbar = () => {
                 </>
               )}
 
-              
               {!authStatus && (
                 <>
                   <NavLink to="/login" className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-[#2563eb]" : "text-slate-500 hover:text-[#2563eb]"}`}>Login</NavLink>
@@ -129,8 +124,8 @@ const Navbar = () => {
                 <>
                   <div className="h-4 w-px bg-slate-200 dark:bg-white/10 mx-2"></div>
                   <button 
-                    onClick={handleLogout} // <--- ফাংশন কল করা হলো
-                    className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-90"
+                    onClick={handleLogout}
+                    className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-90 shadow-sm"
                   >
                     Logout
                   </button>
@@ -155,52 +150,65 @@ const Navbar = () => {
         </div>
       </nav>
 
-      
+      {/* Mobile Sidebar Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden">
-          <div id="mobile-menu" className={`fixed inset-y-0 right-0 w-full max-w-xs bg-white dark:bg-[#0a0a0c] shadow-xl transform transition-transform duration-300 ease-in-out`}>
+          <div id="mobile-menu" className="fixed inset-y-0 right-0 w-full max-w-xs bg-white dark:bg-[#0a0a0c] shadow-2xl transform transition-transform duration-300 ease-in-out border-l dark:border-white/5">
             <div className="flex flex-col h-full">
+              {/* Menu Header */}
               <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-white/5">
                 <div className="flex items-center gap-2">
                   <span className="material-icons-outlined text-[#2563eb] text-2xl">auto_awesome</span>
                   <span className="font-serif text-xl font-bold tracking-tight dark:text-white">MegaBlog</span>
                 </div>
-                <button onClick={toggleMenu} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"><span className="material-icons-outlined">close</span></button>
+                <button onClick={toggleMenu} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500"><span className="material-icons-outlined">close</span></button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                <NavLink to="/" onClick={closeMenu} className={({ isActive }) => `block text-base font-medium py-3 px-4 rounded-lg transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:text-[#2563eb] hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
-                  <div className="flex items-center gap-3"><span className="material-icons-outlined text-lg">home</span><span>Home</span></div>
+              {/* Navigation Links */}
+              <div className="flex-1 overflow-y-auto p-6 space-y-2">
+                <NavLink to="/" onClick={closeMenu} className={({ isActive }) => `flex items-center gap-3 text-base font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
+                  <span className="material-icons-outlined text-lg">home</span>
+                  <span>Home</span>
                 </NavLink>
 
                 {authStatus && (
                   <>
-                    <NavLink to="/all-posts" onClick={closeMenu} className={({ isActive }) => `block text-base font-medium py-3 px-4 rounded-lg transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:text-[#2563eb] hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
-                      <div className="flex items-center gap-3"><span className="material-icons-outlined text-lg">article</span><span>All Posts</span></div>
+                    <NavLink to="/all-posts" onClick={closeMenu} className={({ isActive }) => `flex items-center gap-3 text-base font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
+                      <span className="material-icons-outlined text-lg">article</span>
+                      <span>All Posts</span>
                     </NavLink>
-                    <NavLink to="/add-post" onClick={closeMenu} className={({ isActive }) => `block text-base font-medium py-3 px-4 rounded-lg transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:text-[#2563eb] hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
-                      <div className="flex items-center gap-3"><span className="material-icons-outlined text-lg">add_circle</span><span>Add Post</span></div>
+                    <NavLink to="/add-post" onClick={closeMenu} className={({ isActive }) => `flex items-center gap-3 text-base font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
+                      <span className="material-icons-outlined text-lg">add_circle</span>
+                      <span>Add Post</span>
+                    </NavLink>
+                    {/* Updated Profile Link to look consistent */}
+                    <NavLink to="/profile" onClick={closeMenu} className={({ isActive }) => `flex items-center gap-3 text-base font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? "text-[#2563eb] bg-blue-50 dark:bg-blue-900/20" : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"}`}>
+                      <span className="material-icons-outlined text-lg">account_circle</span>
+                      <span>Profile</span>
                     </NavLink>
                   </>
                 )}
 
-                {!authStatus ? (
-                  <>
-                    <NavLink to="/login" onClick={closeMenu} className="block text-base font-medium py-3 px-4 text-slate-700 dark:text-slate-300">Login</NavLink>
-                    <NavLink to="/signup" onClick={closeMenu} className="block text-base font-medium py-3 px-4 text-slate-700 dark:text-slate-300">Signup</NavLink>
-                  </>
-                ) : (
-                  <div className="pt-6 border-t border-slate-100 dark:border-white/5">
-                    <button 
-                      onClick={handleLogout} 
-                      className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 text-white py-3.5 px-4 rounded-full text-base font-semibold transition-all hover:opacity-90 flex items-center justify-center gap-2"
-                    >
-                      <span className="material-icons-outlined text-lg">logout</span>
-                      <span>Logout</span>
-                    </button>
+                {!authStatus && (
+                  <div className="pt-4 space-y-2">
+                    <NavLink to="/login" onClick={closeMenu} className="block text-center text-base font-medium py-3 px-4 rounded-xl text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10">Login</NavLink>
+                    <NavLink to="/signup" onClick={closeMenu} className="block text-center text-base font-medium py-3 px-4 rounded-xl bg-[#2563eb] text-white">Signup</NavLink>
                   </div>
                 )}
               </div>
+
+              {/* Logout Section */}
+              {authStatus && (
+                <div className="p-6 border-t border-slate-100 dark:border-white/5">
+                  <button 
+                    onClick={handleLogout} 
+                    className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 text-white py-3.5 px-4 rounded-xl text-base font-semibold transition-all hover:opacity-90 flex items-center justify-center gap-2 shadow-lg active:scale-95"
+                  >
+                    <span className="material-icons-outlined text-lg">logout</span>
+                    <span>Logout</span>
+                  </button>
+                </div>
+              )}
               
             </div>
           </div>
