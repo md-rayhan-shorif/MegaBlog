@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BigCard from '../components/cards/BigCard';
 import QouteCard from '../components/cards/QouteCard';
 import WideCard from '../components/cards/WideCard';
 import SmallCard from '../components/cards/SmallCard';
+import appwriteService from '../Appwrite/config';
 
 const Home = () => {
+  const [posts, setposts] = useState([])
+
+  useEffect(()=>{
+    appwriteService.getPosts()
+    .then((post)=>{
+      setposts(post.documents)
+    })
+  },[])
+  console.log(posts)
+
   return (
     <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen font-sans">
       
@@ -23,22 +34,21 @@ const Home = () => {
 
       {/* Main Content - Grid Layout */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
           
-          {/* Featured Post (Big Card) */}
-          {/* <BigCard/> */}
+         
+          
+          {
+            posts.map((post)=>(
+              
+              <div key={post.$id} className=' min-w-50 gap ' >
+                <SmallCard {...post}  /> 
 
-          {/* Small Card 1 */}
-          <SmallCard/>
+              </div>
+            ))
+          }
 
-          {/* Small Card 2 */}
-          {/* <SmallCard/> */}
-
-          {/* Wide Horizontal Card */}
-          {/* <WideCard/> */}
-
-          {/* Quote Card */}
-          {/* <QouteCard/> */}
+          
 
         </div>
       </main>
