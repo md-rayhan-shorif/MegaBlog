@@ -8,7 +8,14 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
     pages.push(i)
   }
 
-  // যদি কোনো পোস্ট না থাকে তবে পেজিনেশন দেখানোর দরকার নেই
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+  };
+
+ 
   if (totalPages <= 1) return null;
 
   return (
@@ -23,7 +30,8 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
             return (
               <button
                 key={index}
-                onClick={() => setCurrentPage(page)}
+               
+                onClick={() => handlePageChange(page)}
                 className={`
                   w-11 h-11 flex items-center justify-center rounded-xl transition-all duration-300 font-bold text-sm
                   ${isActive 

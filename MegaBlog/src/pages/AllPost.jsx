@@ -5,6 +5,7 @@ import Category from '../components/others/Category';
 import HeadingMsg from '../components/others/HeadingMsg';
 import appwriteService from '../Appwrite/config';
 import SmallCard from '../components/cards/SmallCard';
+import ScrollToTop from '../components/others/ScrollToTop';
 
 const AllPost = () => {
    const [posts, setposts] = useState([])
@@ -60,6 +61,7 @@ const AllPost = () => {
       </main>
 
         {/* Pagination */}
+        <ScrollToTop/>
        <Pagination 
        totalPosts={posts.length}
        postsPerPage={postPerPage} 

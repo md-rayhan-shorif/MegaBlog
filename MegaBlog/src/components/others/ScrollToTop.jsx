@@ -2,15 +2,17 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
-  // বর্তমান URL বা লোকেশন ট্র্যাক করার জন্য useLocation হুক ব্যবহার করা হয়েছে
-  const { pathname } = useLocation();
+  const location = useLocation(); // এটি pathname এবং search (query params) সব ট্র্যাক করে
 
   useEffect(() => {
-    // যখনই pathname (URL) পরিবর্তন হবে, তখনই উইন্ডো স্ক্রল হয়ে উপরে চলে যাবে
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth" // পেজ চেঞ্জ হলে বা পেজিনেশন করলে স্মুথলি উপরে যাবে
+    });
+  }, [location]); // location ডিপেন্ডেন্সি হিসেবে থাকায় পেজিনেশন চেঞ্জ হলেও কাজ করবে
 
-  return null; // এটি কোনো UI রেন্ডার করবে না, শুধু লজিক হিসেবে কাজ করবে
+  return null;
 };
 
 export default ScrollToTop;
