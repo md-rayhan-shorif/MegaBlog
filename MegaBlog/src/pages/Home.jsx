@@ -9,21 +9,25 @@ import HomeCTA from '../components/others/HomeCTA';
 const Home = () => {
   const [posts, setposts] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     appwriteService.getPosts()
-    .then((post)=>{
-      setposts(post.documents)
-    })
-  },[])
+      .then((post) => {
+        // Safety Check: post এবং post.documents আছে কিনা যাচাই করে সেট করা
+        if (post && post.documents) {
+          setposts(post.documents);
+        }
+      })
+      .catch((error) => console.error("Error fetching posts:", error));
+  }, [])
+
   console.log(posts)
-  const homePagePost = posts.slice(0,5)
+
+  // posts না থাকলে যেন স্লাইস করতে গিয়ে এরর না দেয়
+  const homePagePost = posts ? posts.slice(0, 5) : [];
 
   return (
     <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen font-sans">
       
-   
-     
-
       {/* Header */}
       <header className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="font-serif text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">
@@ -38,26 +42,18 @@ const Home = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
           
-         
-          
           {
-            homePagePost.map((post)=>(
-              
-              <div key={post.$id} className=' min-w-50 gap ' >
-                <SmallCard {...post}  /> 
-
+            homePagePost.map((post) => (
+              <div key={post.$id} className=' min-w-50 gap '>
+                <SmallCard {...post} /> 
               </div>
             ))
           }
 
           <HomeCTA/>
 
-          
-
         </div>
       </main>
-
-       
     </div>
   );
 };
