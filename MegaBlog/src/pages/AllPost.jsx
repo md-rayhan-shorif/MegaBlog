@@ -8,6 +8,8 @@ import SmallCard from '../components/cards/SmallCard';
 
 const AllPost = () => {
    const [posts, setposts] = useState([])
+   const [currentPage, setCurrentPage] = useState(1)
+   const [postPerPage, setPostPerPage] = useState(8)
 
   useEffect(()=>{
     appwriteService.getPosts()
@@ -15,7 +17,12 @@ const AllPost = () => {
       setposts(post.documents)
     })
   },[])
-  console.log(posts)
+  // console.log(posts)
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+
+  const currentPost =  posts.slice(firstPostIndex  , lastPostIndex)
+
 
   return (
     <div className="bg-[#fdfdfd] dark:bg-[#0a0a0c] text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen font-sans">
@@ -38,7 +45,7 @@ const AllPost = () => {
          
           
           {
-            posts.map((post)=>(
+            currentPost.map((post)=>(
               
               <div key={post.$id} className=' min-w-50 gap ' >
                 <SmallCard {...post}  /> 
@@ -53,7 +60,12 @@ const AllPost = () => {
       </main>
 
         {/* Pagination */}
-       <Pagination/>
+       <Pagination 
+       totalPosts={posts.length}
+       postsPerPage={postPerPage} 
+       setCurrentPage={setCurrentPage}
+       currentPage={currentPage}
+       />
       
     </div>
   );

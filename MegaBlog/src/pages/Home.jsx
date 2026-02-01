@@ -4,6 +4,7 @@ import QouteCard from '../components/cards/QouteCard';
 import WideCard from '../components/cards/WideCard';
 import SmallCard from '../components/cards/SmallCard';
 import appwriteService from '../Appwrite/config';
+import HomeCTA from '../components/others/HomeCTA';
 
 const Home = () => {
   const [posts, setposts] = useState([])
@@ -15,6 +16,7 @@ const Home = () => {
     })
   },[])
   console.log(posts)
+  const homePagePost = posts.slice(0,5)
 
   return (
     <div className="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen font-sans">
@@ -39,7 +41,7 @@ const Home = () => {
          
           
           {
-            posts.map((post)=>(
+            homePagePost.map((post)=>(
               
               <div key={post.$id} className=' min-w-50 gap ' >
                 <SmallCard {...post}  /> 
@@ -47,6 +49,8 @@ const Home = () => {
               </div>
             ))
           }
+
+          <HomeCTA/>
 
           
 
