@@ -4,5 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),  tailwindcss(),],
+  // এটি নিশ্চিত করবে যে সব ফাইল রুট পাথ থেকে লোড হচ্ছে
+  base: '/', 
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
 })
