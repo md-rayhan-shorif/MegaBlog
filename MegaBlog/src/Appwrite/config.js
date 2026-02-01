@@ -27,7 +27,7 @@ export class AppwriteService {
                     slug,
                     content,
                     featuredImage,
-                    authorId,
+                    authorId ,
                     likes: [],
                 }
             )
@@ -53,7 +53,105 @@ export class AppwriteService {
         }
     }
 
-    async toggleLike(slug, usre)
+    async toggleLike(slug, userId, currentLikedArray = []){
+        try {
+            const isLiked = currentLikedArray.includes(userId)
+            const updatedLikes = isLiked ? currentLikedArray.filter( (id)=> id !== userId ) : [...currentLikedArray, userId];
+
+            return await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwritePostsCollectionId,
+                slug,
+                {
+                    likes: updatedLikes
+                }
+            );
+        } catch (error) {
+             console.log("Appwrite service :: toggleLike :: error", error);
+            return null;
+        }
+    }
+
+    async uploadFile(file){
+        try {
+            return await this.storage.createFile(
+                conf.appwriteBucketId,
+                ID.unique(),
+                file
+            )
+        } catch (error) {
+             console.log("Appwrite service :: uploadFile :: error", error)
+            return false;
+        }
+    }
+
+
+    // একদম এভাবে লিখুন
+getFilePreview(fileId) {
+    try {
+        if (!fileId) return "";
+        return this.storage.getFileView(
+            conf.appwriteBucketId,
+            fileId
+        ); // এখানে .href দিতে পারেন অথবা সরাসরি অবজেক্টও কাজ করে রিঅ্যাক্টে
+    } catch (error) {
+        console.log("Appwrite service :: getFilePreview :: error", error);
+        return "";
+    }
+}
+    async getPost(slug){
+        try {
+            return await this.databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwritePostsCollectionId,
+                slug,
+            )
+        } catch (error) {
+             console.log("Appwrite service :: getPost :: error", error)
+            return false;
+        }
+    }
+
+    async getPosts(queries = []){
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwritePostsCollectionId,
+                queries,
+
+            )
+        } catch (error) {
+            console.log("Appwrite service :: getPosts :: error", error)
+            return false;
+        }
+    }
+
+    async deleteFile(fileId){
+        try {
+            await this.storage.deleteFile(
+                conf.appwriteBucketId,
+                fileId
+            )
+            return true;
+        } catch (error) {
+              console.log("Appwrite service :: deleteFile :: error", error)
+            return false;
+        }
+    }
+    async deletePost(slug){
+        try {
+            await this.databases.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwritePostsCollectionId,
+                slug
+
+            );
+            return true;
+        } catch (error) {
+            console.log("Appwrite service :: deletePost :: error", error)
+            return false;
+        }
+    }
 
 
 
@@ -61,3 +159,6 @@ export class AppwriteService {
 
 
 };
+
+const appwriteService = new AppwriteService()
+export default appwriteService

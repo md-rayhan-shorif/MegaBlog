@@ -26,19 +26,19 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Featured Post (Big Card) */}
-          <BigCard/>
+          {/* <BigCard/> */}
 
           {/* Small Card 1 */}
           <SmallCard/>
 
           {/* Small Card 2 */}
-          <SmallCard/>
+          {/* <SmallCard/> */}
 
           {/* Wide Horizontal Card */}
-          <WideCard/>
+          {/* <WideCard/> */}
 
           {/* Quote Card */}
-          <QouteCard/>
+          {/* <QouteCard/> */}
 
         </div>
       </main>
