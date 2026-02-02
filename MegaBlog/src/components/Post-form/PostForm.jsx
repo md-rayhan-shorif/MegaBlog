@@ -21,6 +21,7 @@ const PostForm = ({ post }) => {
     const navigate = useNavigate()
     const userData = useSelector(state => state.auth.userData)
 
+    // ইমেজ প্রিভিউ হ্যান্ডলার
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -28,35 +29,47 @@ const PostForm = ({ post }) => {
         }
     };
 
-   
+    // কাস্টম ডিভ ক্লিক করলে ইনপুট ট্রিগার হবে
     const handleDivClick = () => {
         fileInputRef.current.click();
     };
 
     const submit = async (data) => {
+        // data.image এবং data.image[0] আছে কি না তা নিশ্চিত হওয়া
+        const fileData = data.image && data.image[0] ? data.image[0] : null;
+
         if (post) {
-            const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+            // পোস্ট এডিট করার সময় নতুন ইমেজ আপলোড
+            const file = fileData ? await appwriteService.uploadFile(fileData) : null;
+            
             if (file) {
                 appwriteService.deleteFile(post.featuredImage);
             }
+
             const dbPost = await appwriteService.updatePost(post.$id, {
                 ...data,
                 featuredImage: file ? file.$id : post.featuredImage,
             });
+
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`);
             }
         } else {
-            const file = await appwriteService.uploadFile(data.image[0]);
-            if (file) {
-                const dbPost = await appwriteService.createPost({
-                    ...data,
-                    featuredImage: file.$id,
-                    authorId: userData.$id,
-                });
-                if (dbPost) {
-                    navigate(`/post/${dbPost.$id}`);
+            // নতুন পোস্ট তৈরির সময় ইমেজ আপলোড
+            if (fileData) {
+                const file = await appwriteService.uploadFile(fileData);
+                if (file) {
+                    const dbPost = await appwriteService.createPost({
+                        ...data,
+                        featuredImage: file.$id,
+                        authorId: userData.$id,
+                    });
+                    if (dbPost) {
+                        navigate(`/post/${dbPost.$id}`);
+                    }
                 }
+            } else {
+                alert("Please select an image first!");
             }
         }
     }
@@ -76,6 +89,9 @@ const PostForm = ({ post }) => {
         });
         return () => subscription.unsubscribe();
     }, [watch, slugTransform, setValue])
+
+    // Image Register definition to avoid conflicts
+    const imageRegister = register("image", { required: !post });
 
     return (
         <form onSubmit={handleSubmit(submit)} className="max-w-7xl mx-auto px-4 py-8">
@@ -114,7 +130,6 @@ const PostForm = ({ post }) => {
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-slate-300">Featured Image :</label>
                             
-                            
                             <div 
                                 onClick={handleDivClick} 
                                 className="mt-1 flex flex-col items-center justify-center px-6 py-10 border-2 border-slate-700 border-dashed rounded-xl hover:border-blue-500 hover:bg-slate-900 transition-all cursor-pointer group"
@@ -125,22 +140,26 @@ const PostForm = ({ post }) => {
                                 <p className="mt-2 text-sm text-slate-400 group-hover:text-slate-300">Click to upload featured image</p>
                                 <p className="text-xs text-slate-500">PNG, JPG, GIF up to 10MB</p>
                                 
-                                
                                 <input 
                                     type="file" 
                                     className="hidden" 
-                                    ref={fileInputRef} 
                                     accept="image/png, image/jpg, image/jpeg, image/gif"
+                                    name={imageRegister.name}
+                                    onBlur={imageRegister.onBlur}
                                     onChange={(e) => {
-                                        register("image").onChange(e); 
-                                        handleImageChange(e);
+                                        imageRegister.onChange(e); // Hook Form এর স্টেট আপডেট করবে
+                                        handleImageChange(e);      // প্রিভিউ দেখাবে
+                                    }}
+                                    ref={(e) => {
+                                        imageRegister.ref(e);      // Hook Form এর ref
+                                        fileInputRef.current = e;  // আপনার কাস্টম ক্লিক হ্যান্ডলারের ref
                                     }}
                                 />
                             </div>
                         </div>
 
                         {/* Preview Section */}
-                        {(imagePreview || post) && (
+                        {(imagePreview || (post && post.featuredImage)) && (
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-slate-400 italic">Preview :</label>
                                 <div className="rounded-xl overflow-hidden border border-slate-700 bg-slate-900">
@@ -155,7 +174,7 @@ const PostForm = ({ post }) => {
 
                         <button 
                             type="submit" 
-                            className={`w-full py-4 px-6 rounded-xl font-bold text-white transition-all transform active:scale-95 shadow-lg ${post ? "bg-green-600 hover:bg-green-700 shadow-green-900/20" : "bg-blue-600 hover:bg-blue-700 shadow-blue-900/40"}`}
+                            className={`w-full py-4 px-6 rounded-xl font-bold text-white transition-all transform cursor-pointer active:scale-95 shadow-lg ${post ? "bg-green-600 hover:bg-green-700" : "bg-blue-600 hover:bg-blue-700"}`}
                         >
                             {post ? "Update Story" : "Publish Story"}
                         </button>
@@ -166,4 +185,4 @@ const PostForm = ({ post }) => {
     )
 }
 
-export default PostForm
+export default PostForm;

@@ -9,10 +9,10 @@ function Footer() {
           
           {/* Brand Section - Navbar style logo */}
           <div className="col-span-1 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="material-icons-outlined text-[#2563eb] text-3xl">auto_awesome</span>
-              <span className="font-serif text-2xl font-bold tracking-tight dark:text-white">MegaBlog</span>
-            </div>
+             <Link to='/' className='flex items-center gap-2'>
+                          <span className="material-icons-outlined text-[#2563eb] text-2xl md:text-3xl">auto_awesome</span>
+                          <span className="font-serif text-xl md:text-2xl font-bold tracking-tight dark:text-white">MegaBlog</span>
+                        </Link>
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 max-w-md">
               A modern publishing platform for creative minds and digital storytellers. Empowering voices worldwide.
             </p>
