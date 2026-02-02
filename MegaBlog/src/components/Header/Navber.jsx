@@ -26,7 +26,7 @@ const Navbar = () => {
         if (res) setDbUserData(res);
       });
     }
-  }, [authStatus, userData]);
+  }, [authStatus, userData, dbUserData]);
 
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);
@@ -125,25 +125,25 @@ const Navbar = () => {
                   <div className="h-4 w-px bg-slate-200 dark:bg-white/10 mx-2"></div>
                   <button 
                     onClick={handleLogout}
-                    className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-90 shadow-sm"
+                    className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-90 shadow-sm cursor-pointer "
                   >
                     Logout
                   </button>
                 </>
               )}
               
-              <button onClick={toggleDarkMode} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              <button onClick={toggleDarkMode} className="p-2 cursor-pointer rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                 {darkMode ? <span className="material-icons-outlined text-lg md:text-xl text-yellow-400">light_mode</span> : <span className="material-icons-outlined text-lg md:text-xl">dark_mode</span>}
               </button>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-2 md:hidden">
-              <button onClick={toggleDarkMode} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              <button onClick={toggleDarkMode} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
                 {darkMode ? <span className="material-icons-outlined text-lg text-yellow-400">light_mode</span> : <span className="material-icons-outlined text-lg">dark_mode</span>}
               </button>
               <button id="hamburger-button" onClick={toggleMenu} className="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                {isMenuOpen ? <span className="material-icons-outlined text-xl dark:text-white">close</span> : <span className="material-icons-outlined text-xl dark:text-white">menu</span>}
+                {isMenuOpen ? <span className="material-icons-outlined text-xl cursor-pointer dark:text-white">close</span> : <span className="material-icons-outlined text-xl dark:text-white">menu</span>}
               </button>
             </div>
           </div>
@@ -199,10 +199,11 @@ const Navbar = () => {
 
               {/* Logout Section */}
               {authStatus && (
-                <div className="p-6 border-t border-slate-100 dark:border-white/5">
+                <div className="p-6 border-t border-slate-100 dark:border-white/5 cursor-pointer">
                   <button 
                     onClick={handleLogout} 
-                    className="w-full bg-slate-900 dark:bg-white dark:text-slate-900 text-white py-3.5 px-4 rounded-xl text-base font-semibold transition-all hover:opacity-90 flex items-center justify-center gap-2 shadow-lg active:scale-95"
+                    className="w-full bg-slate-900 dark:bg-white  dark:text-slate-900 text-white py-3.5 px-4 rounded-xl text-base font-semibold transition-all hover:opacity-90 flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95"
+                    
                   >
                     <span className="material-icons-outlined text-lg">logout</span>
                     <span>Logout</span>
