@@ -26,7 +26,7 @@ const Navbar = () => {
         if (res) setDbUserData(res);
       });
     }
-  }, [authStatus, userData, dbUserData]);
+  }, [authStatus, userData]);
 
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);

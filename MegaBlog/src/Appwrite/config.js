@@ -112,7 +112,7 @@ getFilePreview(fileId) {
         }
     }
 
-    async getPosts(queries = []){
+    async getPosts(queries = [Query.limit(100)]){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
