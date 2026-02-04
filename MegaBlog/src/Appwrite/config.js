@@ -112,16 +112,30 @@ getFilePreview(fileId) {
         }
     }
 
-    async getPosts(queries = [Query.limit(100)]){
+    // async getPosts(queries = [Query.limit(100)]){
+    //     try {
+    //         return await this.databases.listDocuments(
+    //             conf.appwriteDatabaseId,
+    //             conf.appwritePostsCollectionId,
+    //             queries,
+
+    //         )
+    //     } catch (error) {
+    //         console.log("Appwrite service :: getPosts :: error", error)
+    //         return false;
+    //     }
+    // }
+    // Appwrite/config.js এর ভেতর
+
+    async getPosts(queries = [Query.limit(100), Query.orderDesc("$createdAt") ]) {
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwritePostsCollectionId,
                 queries,
-
             )
         } catch (error) {
-            console.log("Appwrite service :: getPosts :: error", error)
+            console.log("Appwrite service :: getPosts :: error", error);
             return false;
         }
     }
