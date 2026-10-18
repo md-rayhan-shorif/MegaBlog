@@ -20,6 +20,8 @@ const Home = () => {
       .catch((error) => console.error("Error fetching posts:", error));
   }, [])
 
+  // ekhane ami new line add korsi 
+
   console.log(posts)
 
   // posts না থাকলে যেন স্লাইস করতে গিয়ে এরর না দেয়
